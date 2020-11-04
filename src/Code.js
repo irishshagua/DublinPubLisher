@@ -6,6 +6,6 @@ function doPost(e) {
   
   return HtmlService
     .createTemplateFromFile('response')
-    .evaluate();
+    .evaluate()
     .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
 }
