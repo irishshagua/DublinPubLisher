@@ -2,5 +2,4 @@
 
 cd src
 clasp push -f
-clasp undeploy --all
-clasp deploy -V 12
+clasp deploy -i AKfycbzYFe1k_Ad0Y7523gcWqXOTe83EH8cupLXsRhXtNo_gNGr_L1F7
