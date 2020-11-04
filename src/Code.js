@@ -1,11 +1,10 @@
-function doPost(e) {
-  var pubName = e.parameters.pubName;
-  var review = e.parameters.review;
-  var longitude = e.parameters.longitude;
-  var latitude = e.parameters.latitude;
+function doPost(e) {  
+    var template = HtmlService.createTemplateFromFile('response');
   
-  return HtmlService
-    .createTemplateFromFile('response')
-    .evaluate()
-    .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+    template.pubName = e.parameters.pubName;
+    template.review = e.parameters.review;
+    template.longitude = e.parameters.longitude;
+    template.latitude = e.parameters.latitude;
+    
+    return template.evaluate().setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
 }
