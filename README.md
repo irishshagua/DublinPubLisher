@@ -5,7 +5,7 @@ Google App Script to allow adding pubs to the Dublin pub list by commiting a cha
 This repo is a work in progress. Below is still left to do...
 
  [x] Workflow publishes to Google App Script
- [] Workflow needs to deploy the script
+ [x] Workflow needs to deploy the script
  [] The script needs to work 😅
 
 # Deploy
