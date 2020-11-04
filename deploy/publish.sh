@@ -2,4 +2,5 @@
 
 cd src
 clasp push -f
+clasp undeploy --all
 clasp deploy
