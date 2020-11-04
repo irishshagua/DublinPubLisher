@@ -4,7 +4,7 @@ function doPost(e) {
   var longitude = e.parameters.longitude;
   var latitude = e.parameters.latitude;
   
-  var output = HtmlService.createHtmlOutput('UPDATED!!! Pub Name: ' + pubName + '. Review: ' + review + '. Longitude: ' + longitude + '. Latitude: ' + latitude);
+  var output = HtmlService.createHtmlOutput('Pub Name: ' + pubName + '. Review: ' + review + '. Longitude: ' + longitude + '. Latitude: ' + latitude);
   output.setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
   return output;
 }
