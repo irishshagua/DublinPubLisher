@@ -1,4 +1,4 @@
 #!/bin/sh
 
 cd src
-clasp push
+clasp push -f
