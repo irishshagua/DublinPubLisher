@@ -49,7 +49,7 @@ function addNewPub(pubName, pubReview, latitude, longitude) {
     var content = result[1];
     
     // Add new pub
-    var updatedContent = content + "\n" + latitude + "\t" + longitude + "\t" + pubName + "\t" + pubReview;
+    var updatedContent = content + latitude + "\t" + longitude + "\t" + pubName + "\t" + pubReview + "\n";
     
     // Update content
     var result = updateContent(updatedContent, sha);
