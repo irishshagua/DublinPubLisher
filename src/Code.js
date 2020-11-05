@@ -12,8 +12,11 @@ function retrieveContent() {
     var resp = UrlFetchApp.fetch(GITHUB_URL, options);
     
     var json = JSON.parse(resp.getContentText());
+    Logger.log('Retrieved JSON is ' + json);
     var sha = json.sha;
+    Logger.log('sha is ' + sha);
     var content = Utilities.base64Decode(json.content);
+    Logger.log('content is ' + sha);
     
     return [sha, content];
 }
