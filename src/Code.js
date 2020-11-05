@@ -32,7 +32,7 @@ function updateContent(updatedContent, previousSha) {
         payload: JSON.stringify({
             message: '[Google App Bot] Adding a new pub',
             sha: previousSha,
-            content: Utilities.base64Decode(json);
+            content: Utilities.base64Decode(json)
         })
     };
   
