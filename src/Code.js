@@ -1,7 +1,10 @@
-const TOKEN = 'abc123';
+const TOKEN = '<GITHUB_API_TOKEN>';
 const GITHUB_URL = "https://api.github.com/repos/irishshagua/dublin-pubs-map/contents/postgres-pubs-dump.txt";
 
 function retrieveContent() {
+    var scriptProperties = PropertiesService.getScriptProperties();
+    Logger.log('script properties are ' + scriptProperties);
+
     var headers = {
         "Authorization": "Bearer " + TOKEN,
         "Accept": "application/vnd.github.v3+json"
