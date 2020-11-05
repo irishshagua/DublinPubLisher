@@ -1,34 +1,6 @@
 const TOKEN = 'abc123';
 const GITHUB_URL = "https://api.github.com/repos/irishshagua/dublin-pubs-map/contents/postgres-pubs-dump.txt";
 
-function doPost(e) {  
-    var template = HtmlService.createTemplateFromFile('response');
-  
-    template.pubName = e.parameters.pubName;
-    template.review = e.parameters.review;
-    template.latitude = e.parameters.latitude;
-    template.longitude = e.parameters.longitude;
-
-    addNewPub(template.pubName, template.review, template.latitude, template.longitude);
-    
-    return template.evaluate().setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
-}
- 
-function addNewPub(pubName, pubReview, latitude, longitude) {
-    Logger.log('Attempting to add [' + pubName + ']');
-    
-    // Get current content
-    var result = retrieveContent();
-    var sha = result[0];
-    var content = result[1];
-    
-    // Add new pub
-    var updatedContent = content + "\n" + latitude + "\t" + longitude + "\t" + pubName + "\t" + pubReview;
-    
-    // Update content
-    var result = updateContent(updatedContent, sha);
-};
-
 function retrieveContent() {
     var headers = {
         "Authorization": "Bearer " + TOKEN,
@@ -67,4 +39,32 @@ function updateContent(updatedContent, previousSha) {
     var resp = UrlFetchApp.fetch(GITHUB_URL, options);
     
     return JSON.parse(resp);
+}
+
+function addNewPub(pubName, pubReview, latitude, longitude) {
+    Logger.log('Attempting to add [' + pubName + ']');
+    
+    // Get current content
+    var result = retrieveContent();
+    var sha = result[0];
+    var content = result[1];
+    
+    // Add new pub
+    var updatedContent = content + "\n" + latitude + "\t" + longitude + "\t" + pubName + "\t" + pubReview;
+    
+    // Update content
+    var result = updateContent(updatedContent, sha);
+}
+
+function doPost(e) {  
+    var template = HtmlService.createTemplateFromFile('response');
+  
+    template.pubName = e.parameters.pubName;
+    template.review = e.parameters.review;
+    template.latitude = e.parameters.latitude;
+    template.longitude = e.parameters.longitude;
+
+    addNewPub(template.pubName, template.review, template.latitude, template.longitude);
+    
+    return template.evaluate().setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
 }
