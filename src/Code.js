@@ -10,9 +10,8 @@ function retrieveContent() {
     var options = {'headers': headers, method: 'GET'};
   
     var resp = UrlFetchApp.fetch(GITHUB_URL, options);
-    Logger.log('Retrieving content from GitHub gave ' + resp);
     
-    var json = JSON.parse(resp);
+    var json = JSON.parse(resp.getContentText());
     var sha = json.sha;
     var content = Utilities.base64Decode(json.content);
     
